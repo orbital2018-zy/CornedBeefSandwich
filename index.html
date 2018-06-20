@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Main Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text.css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
     <style>
         body {
             background-color: orange;
@@ -20,32 +24,44 @@
 <body>
     <h1 style="background-color: orange;color: white">Hungry?</h1>
     <hr>
-    <form>
-        <input type="text" name="ingredients">
-        <input type="submit" value="search"><br>
-    </form>
-
-        <br>
-    <form>
-        <input type="button" name="festive recipes" value="Festive recipes"
-        onclick="festiverecipes.html">
-        <input type="button" name="my shopping list" value="My shopping list"
-        onclick="myshoppinglist.html">
-        <br>
-    </form>
-
-    <div id="moreinfo">
+    <div class="container">
         <main class="row">
-            <section class="col-4">
+            <section class="col-3">
+                <form>
+                        <input type="text" name="ingredients">
+                        <input type="submit" value="search"><br>
+                </form>
+
+                <br>
+            </section>
+            <section class="col"
+    <form>
+        <div align="right">
+            <input type="button" name="festive recipes" value="Festive recipes"
+            onclick="festiverecipes.html">
+            <!--  
+            <input type="button" name="my shopping list" value="My shopping list"
+            onclick="myshoppinglist.html">  -->
+            <br>
+        </div>
+    </form>
+
+    <div class="container">
+        <main class="col">
+            <section class="row-4">
               <h3><a href="aboutus.html">About us</a></h3>
             </section>
 
-            <section class="col-4">
+            <section class="row-4">
               <h3><a href="suggestnewrecipes.html">Suggest new recipes </a></h3>
             </section>
 
-            <section class="col-4">
+            <section class="row-4">
               <h3><a href="howtouse.html">How to use</a></h3>
+            </section>
+
+            <section class="row-4">
+                <h3><a href="myshoppinglist.html">My Shopping List</a></h3>
             </section>
         </main>
     </div>
