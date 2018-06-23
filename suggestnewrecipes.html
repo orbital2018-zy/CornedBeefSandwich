@@ -19,7 +19,8 @@
 <body>
     <div class="container">
         <header class="jumbotron" style="background-color: orange;color: white"> 
-            <h1><a href= "index.html" style="color : white;">Hungry?</a></h1>
+                <img src="https://image.flaticon.com/icons/png/512/621/621707.png" style="width:80px;height:80px;"
+                alt="chicken logo"><h1 style="display: inline;"><a href= "index.html" style="color : white;">Hungry?</a></h1>
             <hr>
         </header>
     </div>
@@ -41,15 +42,21 @@
             <section class="col-10">
                 <div align="left">
                     <form>
-                        <input type="text" style=" border-radius : 4px; width:800px;" placeholder="Recipe name"><br><br>
-                        <input type="text" style="border-radius : 4px;width : 800px; height: 300px;"placeholder="Recipe instructions"><br><br>
+                        <input type="text" style=" border-radius : 4px; width:800px;" placeholder="Recipe name" autofocus><br><br>
+                        <textarea name="recipeinstructionst" style="border-radius : 4px;width : 800px; height: 300px;" 
+                        placeholder="Recipe instructions"></textarea><br><br>
+                        <!--<input type="text" style="border-radius : 4px;width : 800px; height: 300px;"placeholder="Recipe instructions"> -->
                         <input type="file" name="fileupload" value="fileupload" id="fileupload" >
                         <label for="fileupload"> Select an image to upload</label><br><br>
                         <input type="text"  style=" border-radius : 4px; width:800px;" placeholder="link of video, if any"><br><br>
                         <input type="text"  style=" border-radius : 4px; width:800px;" placeholder="your name"><br><br>
-                        <input type="submit" style=" border-radius : 4px; background-color : #3CBC8D; color : white;">
+                        <input type="submit" class="btn btn-success">
                         <br><br>
-        </form>
+                        </form>
+                </div>
+            </section>
+        </main>
+    </div>
 
 
 
