@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,30 +34,38 @@
             <section class="col-4">
             </section>
             <section class="col-5">
-                <form>
-                        <input type="text" name="ingredients" placeholder="key in your ingredients" size="30"
-                        style="height: 40px; font-size: 13pt">
-                        <input type="submit" value="search" class="btn btn-primary btn-lg"><br>
-                </form>
-
                 <br>
             </section>
         </main>
         <main class="row">
-            <section class="col-4">
+            <section class="col-3">
             </section>
-            <section class="col-5">
+            <section>
                 <form>
                     <div align="center">
-                        <button class="btn btn-secondary" formaction = "../../imports/festiverecipes.html" id="festiverecipes" 
-                        >Festive Recipes</button> 
+
+                        <button class="btn btn-primary btn-lg" formaction = "../../imports/searchingred.html" id="search" 
+                        class="search">Search with Ingredients</button> 
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+
+                        <button class="btn btn-primary btn-lg" formaction = "../../imports/searchrecipe.html" id="search" 
+                        class="search">Search with Recipe Name</button>
+                        <br><br><br>
+
+                        <button class="btn btn-secondary btn-lg" formaction = "../../imports/festiverecipes.html" id="festiverecipes" 
+                        class="festiverecipes">Festive Recipes</button> 
+                        &nbsp;
+                        &nbsp;
                         &nbsp;
                         
                         <!--<input type="button" name="festive recipes" value="Festive recipes"
                         onclick="festiverecipes.html">-->
                         
-                        <button class="btn btn-secondary" formaction="../../imports/myshoppinglist.html" id="myshoppinglist"
-                        >My Shopping List</button>
+                        <button class="btn btn-secondary btn-lg" formaction="../../imports/myshoppinglist.html" id="myshoppinglist"
+                        class="myshoppinglist">My Shopping List</button>
                         <br>
                     </div>
                 </form>
@@ -73,7 +83,7 @@
         <main class="row">
             <section class="col-4">
                 <div align="center">
-                  <h4><a href="../../imports/festiverecipes.html" style="color : orange;">About us</a></h4>
+                  <h4><a href="../../imports/aboutus.html" style="color : orange;">About us</a></h4>
                 </div>
             </section>
 
@@ -93,3 +103,4 @@
 
     
 </body>
+</html> 
