@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,25 +21,27 @@
 <body>
     <div class="container">
        <header class="jumbotron" style="background-color: orange;color: white"> 
-        <img src="https://image.flaticon.com/icons/png/512/621/621707.png" style="width:80px;height:80px;"
-        alt="chicken logo"><h1 style="display: inline;"><a href= "body.html" style="color : white;">Hungry?</a></h1>
+            <img src="https://image.flaticon.com/icons/png/512/621/621707.png" style="width:80px;height:80px;"
+            alt="chicken logo"><h1 style="display: inline;"><a href="index.html" style="color : white;">Hungry?</a></h1>
                 <hr>
             </header>
     </div>
         <div class="container">
             <main class="row">
-                <section class="col-5">
+                <section class="col-4">
                 </section>
                 <section class="col-5">
                     <form>
-                            <input type="text" name="ingredients" autofocus>
-                            <input type="submit" value="search"><br>
-                            <br><br><br>
-
-                            <input type="checkbox" name="halal" value="halal">halal<br>
-                            <input type="checkbox" name="vegan" value="vegan">vegan<br>
-                            <input type="checkbox" name="highprotein" value="highprotein">high-protein<br>
-                            <input type="checkbox" name="lowfat" value="lowfat"> low-fat<br><br>
+                        <input type="text" name="ingredients" placeholder="Enter recipe name" size="30"
+                        autofocus>
+                        <input type="submit" value="search" class="btn btn-primary btn-lg"><br>
+                            <br>
+                            <div style="font-size: 20px;">
+                                <input type="checkbox" name="halal" value="halal">halal<br>
+                                <input type="checkbox" name="vegan" value="vegan">vegan<br>
+                                <input type="checkbox" name="highprotein" value="highprotein">high-protein<br>
+                                <input type="checkbox" name="lowfat" value="lowfat"> low-fat<br><br>
+                            </div>
 
                     </form>
                 </section>
@@ -47,3 +51,4 @@
 
     
 </body>
+</html>
