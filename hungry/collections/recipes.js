@@ -2,7 +2,7 @@ import { Mongo } from 'metoer/mongo';
 import { SimpleSchema } from 'simple-schema';
 
 
-Rceipes = new Mongo.Collection("recipes");
+export const Rceipes = new Mongo.Collection("recipes");
 
 Ingredient = new SimpleSchema({
     name: {
