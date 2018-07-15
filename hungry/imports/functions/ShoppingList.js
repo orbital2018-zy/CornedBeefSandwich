@@ -26,15 +26,18 @@ Template.ShoppingList.events({
 
         target.text.value='';
     },
+});
 
-    'click .toggle-checked'() {
+Template.ingredient.events({
+    'click.toggle-checked'() {
         Ingredients.update(this._id, {
-            $set: { checked: ! this.checked },
+            $set: { checked: !this.checked },
         });
     },
 
-    'click .delete'() {
-        Ingredients.remove(this.id);
+    'click.delete'() {
+        Ingredients.remove(this._id);
+        Ingredients.update();
     },
 });
 

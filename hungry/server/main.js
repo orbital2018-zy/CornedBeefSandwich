@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Ingredients } from '../imports/functions/IngredientsList.js';
+//import { Recipes } from '../imports/collections/recipes.js';
 
 import '../imports/functions/IngredientsList.js';
 
