@@ -16,8 +16,8 @@
 
 <template name="ingredient">
     <li class="{{#if checked}}checked{{/if}}">
-        <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+        <button style="background-color : red;" class="delete">&times;</button>
+        <!--<input type="checkbox" checked="{{checked}}" class="toggle-checked" />-->
         <span class="text">{{text}}</span>
     </li>
 </template>
