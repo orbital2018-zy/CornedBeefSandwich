@@ -1,11 +1,12 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
-import '../client/layout/MainLayout.html';
-import '../client/layout/HomeLayout.html';
-import '../client/partials/Header.html';
-import '../client/partials/MoreInfo.html';
-import '../client/functions/SearchIngred.html';
+import '../imports/layout/MainLayout.html';
+import '../imports/layout/HomeLayout.html';
+import '../imports/partials/Header.html';
+import '../imports/partials/MoreInfo.html';
+import '../imports/functions/SearchIngred.html';
+import '../imports/functions/ShoppingList.html';
 
 FlowRouter.route('/', {
     name: 'home',
@@ -28,9 +29,16 @@ FlowRouter.route('/about-us', {
     }
 });
 
-FlowRouter.route('/Suggest-new-recipe', {
+FlowRouter.route('/suggest-new-recipe', {
     name: 'suggest-new-recipe',
     action() {
         BlazeLayout.render('MainLayout', {main: 'SuggestNewRecipe'});
+    }
+});
+
+FlowRouter.route('/shopping-list', {
+    name: 'shopping-list',
+    action() {
+        BlazeLayout.render('MainLayout', {main: 'ShoppingList'});
     }
 });

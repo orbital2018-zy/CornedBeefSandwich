@@ -1,0 +1,23 @@
+<template name="ShoppingList">
+    <div class = "container">
+        <h1>My Shopping List</h1>
+    </div>
+    <form class="new-ingredient">
+        <input type="text" name="text" placeholder="Add you ingredients"/>
+    </form>
+    <div>
+        <ul>
+            {{#each Items}}
+                {{> ingredient}}
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="ingredient">
+    <li class="{{#if checked}}checked{{/if}}">
+        <button class="delete">&times;</button>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+        <span class="text">{{text}}</span>
+    </li>
+</template>

@@ -1,5 +1,17 @@
 import { Meteor } from 'meteor/meteor';
+import { Ingredients } from '../imports/functions/ShoppingList.js';
+import { Recipes } from '../imports/collections/recipes.js';
 
-Meteor.startup(() => {
-  // code to run on server at startup
+import '../imports/collections/recipes.js'
+import '../imports/functions/ShoppingList.js';
+
+Meteor.publish(null, function() {
+  return Ingredients.find();
+});
+
+Meteor.publish('recipes', function() {
+  return Recipes.find();
+});
+
+Meteor.startup(function() {
 });

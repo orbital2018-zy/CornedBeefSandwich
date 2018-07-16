@@ -18,10 +18,7 @@
 
 <template name="SuggestNewRecipe">
     <h2>Suggest new recipe</h2>
-    <form name="NewRecipe">
-        <input type="text" placeholder="Recipe name" />
-        <input type="text" placeholder="Recipe instructions" />
-    </form>
+    {{> quickForm collection="recipes" id="insertRecipeForm" type="insert"}}
 </template>
 
 <template name="HowToUse">
