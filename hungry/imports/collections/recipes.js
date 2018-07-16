@@ -3,9 +3,7 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 
-export const Rceipes = new Mongo.Collection("recipes");
-
-Recipes.attachSchema(new SimpleSchema({
+const recipeSchema = new SimpleSchema({    
     name: {
         type: String,
         label: "Name",
@@ -35,4 +33,9 @@ Recipes.attachSchema(new SimpleSchema({
         type: String,
         label: "Instructions",
     },
-}));
+});
+
+const Recipes = new Mongo.Collection('recipes');
+Recipes.attachSchema(recipeSchema);
+
+export default Recipes

@@ -1,17 +1,17 @@
 import { Meteor } from 'meteor/meteor';
-import { Ingredients } from '../imports/functions/IngredientsList.js';
-//import { Recipes } from '../imports/collections/recipes.js';
+import { Ingredients } from '../imports/functions/ShoppingList.js';
+import { Recipes } from '../imports/collections/recipes.js';
 
-import '../imports/functions/IngredientsList.js';
+import '../imports/collections/recipes.js'
+import '../imports/functions/ShoppingList.js';
 
-Meteor.publish('ingredients', function() {
+Meteor.publish(null, function() {
   return Ingredients.find();
 });
 
+Meteor.publish('recipes', function() {
+  return Recipes.find();
+});
+
 Meteor.startup(function() {
-  Ingredients.allow({
-    insert: function() {return true;},
-    update: function() {return true;},
-    remove: function() {return true;},
-    });
 });
