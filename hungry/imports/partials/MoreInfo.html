@@ -1,19 +1,48 @@
 <template name="MoreInfo">
     <nav class="more-info">
-        <ul>
-            <li><a href="/about-us"><i class>About Us
-            </i></a></li>
-            <li><a href="/suggest-new-recipe"><i class>Suggest New Recipe
-            </i></a></li>
-            <li><a href="/how-to-use"><i class>How To Use
-                </i></a></li>
-        </ul>
+        <div class="container" style="padding: 10px;">
+            <main class="row">
+                <section class="column">
+                    <div align = "left" style="display:inline; padding-left:140px; padding-right: 140px; padding-top: 40px; font-size:160%">
+                        <a href="/about-us"><i class>About Us
+                                    </i></a>
+                    </div>
+                    <div align = "center" style="display:inline; padding-left:150px; padding-right: 140px; padding-top: 40px; font-size:160%">
+                            
+                        <a href="/suggest-new-recipe"><i class>Suggest New Recipe
+                                    </i></a>             
+                    </div>
+                    <div align = "right" style="display:inline; padding-left:140px; padding-right: 140px; padding-top: 40px; font-size:160%">
+                        <a href="/how-to-use"><i class>How To Use
+                                    </i></a>
+                    </div>
+                </section>               
+            </main>
+        </div>
     </nav>
 </template>
 
 <template name="AboutUs">
     <h2>About the developers</h2>
-    <p>We are the corned beef sandwich, from orbital 2018.</p>
+     <p align="left">
+        We are NUS Year 1 students who are participating in Orbital 2018. <br> Our
+        group is called Corned Beef Sandwich, <br>which was inspired by the food was 
+        sneaked into outer space. <br>Our aim is to provide our users the accessibility
+        to find food that matches <br> what they are looking for, and also pass our Orbital project.
+    </p>
+    <br>
+
+    <h2>About Hungry?</h2>
+
+    <p align="left">
+        Hungry? is a web application that allows users to search for 
+        specific recipes through ingredients. <br> It has easy-to follow
+        instructions that allow even beginners to cook their meals. <br>
+        Besides that, users could search recipes with specific themes,<br>
+        such as Valentine or Halloween to prepare a festive meal for their loved ones.<br>
+        With that, the shopping list notes down the ingredients required to gather<br>
+        which would be convenient when preparing the ingredients.
+    </p>
 </template>
 
 <template name="SuggestNewRecipe">
@@ -22,8 +51,34 @@
 </template>
 
 <template name="HowToUse">
-    <h2>Functions</h2>
-    <p>The web application allows you to search for Recipe 
-        with either its name or its ingredients.
-    </p>
+                    <h2>To search for recipes</h2>
+                    <p>
+                        At the homepage for Hungry?, type in the ingredients you have on hand into the search bar. Press search.<br>
+                        Hungry? will display the dishes with the specified ingredients. <br>Select the dish you are interested in to view the full recipe.
+                        <br><br>
+                    </p>
+                    <h2>To look for recipes relevant to a festive season</h2>
+                    <p>
+                        Click on the Festive recipes button on the home page and  select the <br>
+                        specific festival you are preparing food for. Then, search for recipes <br> 
+                        with specific ingredients or you could just leave it blank to show the whole <br>
+                        catalogue of dishes.<br><br>
+                    </p>
+                    <h2>To create your shopping list</h2>
+                    <p>
+                        Click on the My Shopping List button on the home page. For now, <br>
+                        key in the ingredients that you would be interested in buying for your<br>
+                        next shopping trip. It can't be save yet, so just keep the browser open, <br>
+                        preferable on your phone. We would try to add in the additional functions <br>
+                        by milestone 3.<br><br>
+                    </p>
+                    <h2>To suggest a new recipe</h2>
+                    <p>
+                        Click on the Suggest new recipes link at the bottom of the home page.<br>
+                        Key in the relevant details, such as the dish name and other required fields.<br><br>
+                    </p>
+                    <h2>To return to the home page from any other page</h2>
+                    <p>
+                        Simply click the phrase Hungry? in the header of the page.<br><br>
+                    </p>
 </template>
