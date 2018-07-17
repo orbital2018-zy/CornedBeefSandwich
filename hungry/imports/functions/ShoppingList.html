@@ -5,7 +5,7 @@
     <form class="new-ingredient">
         <input type="text" name="text" placeholder="Add you ingredients"/>
     </form>
-    <div>
+    <div style="padding-bottom : 120px">
         <ul>
             {{#each Items}}
                 {{> ingredient}}
@@ -16,8 +16,8 @@
 
 <template name="ingredient">
     <li class="{{#if checked}}checked{{/if}}">
-        <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+        <button style="background-color : red;" class="delete">&times;</button>
+        <!--<input type="checkbox" checked="{{checked}}" class="toggle-checked" />-->
         <span class="text">{{text}}</span>
     </li>
 </template>
