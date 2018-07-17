@@ -42,7 +42,7 @@ Template.ingredient.events({
     },
 });
 */
-if (Meteor.isClient) {
+if (Meteor.isClient) { 
     var Ingredients = new Meteor.Collection(null);
 
     var shoppingCart = new LocalPersist(Ingredients, 'shopping-cart', 

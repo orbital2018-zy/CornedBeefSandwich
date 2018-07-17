@@ -7,6 +7,8 @@ import '../imports/partials/Header.html';
 import '../imports/partials/MoreInfo.html';
 import '../imports/functions/SearchIngred.html';
 import '../imports/functions/ShoppingList.html';
+import '../imports/functions/InsertRecipe.html';
+// import '../imports/functions/DisplaySearch.html';
 
 FlowRouter.route('/', {
     name: 'home',
@@ -32,7 +34,7 @@ FlowRouter.route('/about-us', {
 FlowRouter.route('/suggest-new-recipe', {
     name: 'suggest-new-recipe',
     action() {
-        BlazeLayout.render('MainLayout', {main: 'SuggestNewRecipe'});
+        BlazeLayout.render('MainLayout', {main: 'NewRecipes'});
     }
 });
 
@@ -42,3 +44,10 @@ FlowRouter.route('/shopping-list', {
         BlazeLayout.render('MainLayout', {main: 'ShoppingList'});
     }
 });
+
+// FlowRouter.route('/search', {
+//     name: 'search',
+//     action() {
+//         BlazeLayout.render('MainLayout', {main: 'DisplayResult'});
+//     }
+// });
