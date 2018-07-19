@@ -2,26 +2,61 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
-const Recipes = new Mongo.Collection('recipes');
+export const Recipes = new Mongo.Collection('recipes');
 
-const recipeSchema = new SimpleSchema({    
+Recipes.attachSchema(new SimpleSchema({    
     name: {
         type: String,
         label: "Name",
     },
-    desc: {
+    difficulty: {
         type: String,
-        label: "Description",
+        label: "Difficulty",
+        autoform : {
+            options: [
+                {
+                    label: "basic",
+                    value: 1,
+                },
+                {
+                    label: "easy",
+                    value: 2,
+                },
+                {
+                    label: "moderate",
+                    value: 3,
+                },
+                {
+                    label: "intermediate",
+                    value: 4,
+                },
+                {
+                    label: "hard",
+                    value: 5,
+                },
+            ]
+        }
+    },
+    course: {
+        type: String,
+        label: "Course",
     },
     createdOn: {
         type: Date,
         label: "Created On",
-        autoValue: function() { return new Date()
-        }
+        autoValue: function() { return new Date();
+        },
+        autoform: {
+            type: "hidden",
+        },
     },
     createdBy: {
         type: String,
         label: "Created By",
+    },
+    servings: {
+        type: String,
+        label: "Servings",
     },
     ingredients: {
         type: Array,
@@ -39,21 +74,31 @@ const recipeSchema = new SimpleSchema({
     },
     festive: {
         type: String,
-        label: "Festive Tags"
+        label: "Festive Tags",
+        optional: true,
     },
     instructions: {
         type: String,
         label: "Instructions",
+        autoform: {
+            type: 'textarea',
+            rows: 5,
+            cols: 90,
+        },
     },
-});
+    dietary: {
+        type: Array,
+        label: "Dietary Tags",
+    },
+    'dietary.$': {
+        type: String,
+    },
+}));
 
 
-Recipes.attachSchema(recipeSchema);
 
 Recipes.allow({
     insert: function () {
         return true;
       },
 });
-
-export default Recipes

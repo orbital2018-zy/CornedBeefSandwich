@@ -8,7 +8,10 @@ import '../imports/partials/MoreInfo.html';
 import '../imports/functions/SearchIngred.html';
 import '../imports/functions/ShoppingList.html';
 import '../imports/functions/InsertRecipe.html';
-// import '../imports/functions/DisplaySearch.html';
+import '../imports/functions/DisplaySearch.html';
+import '../imports/functions/Results.html';
+import '../imports/functions/RecipeSingle';
+
 
 FlowRouter.route('/', {
     name: 'home',
@@ -45,9 +48,16 @@ FlowRouter.route('/shopping-list', {
     }
 });
 
-// FlowRouter.route('/search', {
-//     name: 'search',
-//     action() {
-//         BlazeLayout.render('MainLayout', {main: 'DisplayResult'});
-//     }
-// });
+FlowRouter.route('/search', {
+    name: 'search',
+    action() {
+        BlazeLayout.render('MainLayout', {main: 'DisplaySearch'});
+    }
+});
+
+FlowRouter.route('/result/:id', {
+    name: 'recipe',
+    action() {
+        BlazeLayout.render('MainLayout', {main: 'RecipeSingle'});
+    }
+});

@@ -4,5 +4,7 @@ import '../lib/routes.js';
 import '../imports/collections/recipes.js';
 import '../imports/functions/ShoppingList.js';
 import '../imports/functions/InsertRecipe.js';
+import '../imports/functions/DisplaySearch.js';
+import '../imports/functions/RecipeSingle.js';
 
-window.recipes = Recipes
+window.Recipes = Recipes;
