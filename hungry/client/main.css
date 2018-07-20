@@ -1,4 +1,30 @@
+header {
+  background-color: orange; 
+  color:white;  
+  height: 135px;
+  width: 100%;
+}
+
 body {
   padding: 10px;
   font-family: sans-serif;
+}
+
+#new-recipe-container{
+  background: #FFF;
+  display: inline-block;
+  padding: 20px;
+  margin-right: 50px;
+  margin-left: 50px;
+  width: 100%;
+}
+
+input,select,textarea {
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: solid 2px lightgray;
+  font-weight: 700;
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
