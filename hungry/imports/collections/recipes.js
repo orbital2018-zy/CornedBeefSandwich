@@ -54,6 +54,10 @@ Recipes.attachSchema(new SimpleSchema({
         type: String,
         label: "Created By",
     },
+    duration: {
+        type: String,
+        label: "Duration",
+    },
     servings: {
         type: String,
         label: "Servings",
@@ -75,7 +79,38 @@ Recipes.attachSchema(new SimpleSchema({
     festive: {
         type: String,
         label: "Festive Tags",
-        optional: true,
+        autoform : {
+            options: [
+                {
+                    label: "None",
+                    value: "none",
+                },
+                {
+                    label: "Chinese New Year",
+                    value: "chinese-new-year",
+                },
+                {
+                    label: "Vesak Day",
+                    value: "vesak-day",
+                },
+                {
+                    label: "Hari Raya Puasa",
+                    value: "hari-raya-puasa",
+                },
+                {
+                    label: "Deepavali",
+                    value: "deepavali",
+                },
+                {
+                    label: "Christmas",
+                    value: "christmas",
+                },
+                {
+                    label: "Mid-autumn festival",
+                    value: "mid-autumn-festival",
+                },
+            ]
+        }
     },
     instructions: {
         type: String,

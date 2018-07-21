@@ -5,18 +5,28 @@ header {
   width: 100%;
 }
 
+.main-layout {
+  padding: 10px;
+  margin-right: 100px;
+  margin-left: 300px;
+}
+
 body {
   padding: 10px;
   font-family: sans-serif;
 }
 
-#new-recipe-container{
+footer {
+  position: relative;
+  align-content: center;
+  margin-left: 100px;
+  bottom: 0;
+}
+
+.new-recipe-container{
   background: #FFF;
   display: inline-block;
-  padding: 20px;
-  margin-right: 50px;
-  margin-left: 50px;
-  width: 100%;
+  width: 80%;
 }
 
 input,select,textarea {
@@ -27,4 +37,15 @@ input,select,textarea {
   font-weight: 700;
   width: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+} 
+
+div.festives {
+  font-size: 140%;
+  margin-bottom: 80px;
+}
+
+.results {
+  border: solid 2px lightgray;
+  padding: 5px;
+  margin-right: 150px;
 }

@@ -10,7 +10,8 @@ import '../imports/functions/ShoppingList.html';
 import '../imports/functions/InsertRecipe.html';
 import '../imports/functions/DisplaySearch.html';
 import '../imports/functions/Results.html';
-import '../imports/functions/RecipeSingle';
+import '../imports/functions/RecipeSingle.html';
+import '../imports/functions/Festive.html';
 
 
 FlowRouter.route('/', {
@@ -59,5 +60,19 @@ FlowRouter.route('/result/:id', {
     name: 'recipe',
     action() {
         BlazeLayout.render('MainLayout', {main: 'RecipeSingle'});
+    }
+});
+
+FlowRouter.route('/festive', {
+    name: 'festive',
+    action() {
+        BlazeLayout.render('MainLayout', {main: 'Festive'});
+    }
+});
+
+FlowRouter.route('/festive/:id', {
+    name: 'festive-recipes',
+    action() {
+        BlazeLayout.render('MainLayout', {main: 'FestiveSearch'});
     }
 });

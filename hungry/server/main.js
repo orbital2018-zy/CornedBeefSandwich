@@ -11,3 +11,6 @@ Meteor.publish('recipes', function() {
   return Recipes.find();
 });
 
+Meteor.publish('singleRecipe', function(id) {
+  return Recipes.find({_id: id});
+});

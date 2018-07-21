@@ -2,12 +2,26 @@
     <h2>Here are your search results:</h2>
     <section class="output">
         {{#if Template.subscriptionsReady}}
-            {{#each results}}
+            {{#each recipes}}
                 {{> Result}}
             {{/each}}
-            <p>End of your search</p>
+            <h4 style="padding: 20px;">End of your search</h4>
         {{else}}
-            <p>Loading your search results...</p>
+            <h4 >Loading your search results...</h4>
         {{/if}}
     </section>
 </template>
+
+<template name="FestiveSearch">
+        <h2>Here are your search results:</h2>
+        <section class="output">
+            {{#if Template.subscriptionsReady}}
+                {{#each recipes}}
+                    {{> Results}}
+                {{/each}}
+                <h4 style="padding: 20px;">End of your search</h4>
+            {{else}}
+                <h4>Loading your search results...</h4>
+            {{/if}}
+        </section>
+    </template>
