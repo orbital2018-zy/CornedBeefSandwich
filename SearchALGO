@@ -1,0 +1,17 @@
+//ALGO for the searchIngred part
+//suppose user enters array needIngred
+//loop-100 times with i as counter
+	//For every ith entry in the database
+		//If size of ith entry's Ingredients array<size of needIngred array => i++ and next iteration
+		//Else
+			//match = 0
+			//count = 0
+			//for every element in needIngred array - item 
+				//for every element in ith entry's Ingredient array - prod and while match = 0
+					//if item is a substring of product
+						//match = 1
+						//count++
+					//else 
+						//move to next entry
+			//if count is equal to size of needIngred array => print this recipe
+//All results printed by the time this is reached
