@@ -10,6 +10,7 @@ FlowRouter = Package['kadira:flow-router'].FlowRouter;
 BlazeLayout = Package['kadira:blaze-layout'].BlazeLayout;
 ActiveRoute = Package['zimme:active-route'].ActiveRoute;
 Collection2 = Package['aldeed:collection2-core'].Collection2;
+EasySearch = Package['easy:search'].EasySearch;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;
 meteorEnv = Package.meteor.meteorEnv;

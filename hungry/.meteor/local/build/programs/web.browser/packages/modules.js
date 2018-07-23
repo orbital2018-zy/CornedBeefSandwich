@@ -199,6 +199,15 @@ install("aldeed:autoform");
 install("nunohvidal:lz-string");
 install("jeffm:local-persist");
 install("twbs:bootstrap");
+install("easysearch:core", "meteor/easysearch:core/lib/main.js");
+install("peerlibrary:assert");
+install("peerlibrary:reactive-field");
+install("peerlibrary:computed-field");
+install("peerlibrary:base-component");
+install("peerlibrary:data-lookup");
+install("peerlibrary:blaze-components");
+install("easysearch:components", "meteor/easysearch:components/lib/main.js");
+install("easy:search", "meteor/easy:search/main.js");
 install("webapp", "meteor/webapp/webapp_client.js");
 install("hot-code-push");
 install("launch-screen");
@@ -4639,7 +4648,7 @@ exports.default = defaultMessages;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                        //
 exports.name = "extend";
-exports.version = "3.0.1";
+exports.version = "3.0.2";
 exports.main = "index";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4656,6 +4665,8 @@ exports.main = "index";
 
 var hasOwn = Object.prototype.hasOwnProperty;
 var toStr = Object.prototype.toString;
+var defineProperty = Object.defineProperty;
+var gOPD = Object.getOwnPropertyDescriptor;
 
 var isArray = function isArray(arr) {
 	if (typeof Array.isArray === 'function') {
@@ -4685,6 +4696,35 @@ var isPlainObject = function isPlainObject(obj) {
 	return typeof key === 'undefined' || hasOwn.call(obj, key);
 };
 
+// If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+var setProperty = function setProperty(target, options) {
+	if (defineProperty && options.name === '__proto__') {
+		defineProperty(target, options.name, {
+			enumerable: true,
+			configurable: true,
+			value: options.newValue,
+			writable: true
+		});
+	} else {
+		target[options.name] = options.newValue;
+	}
+};
+
+// Return undefined instead of __proto__ if '__proto__' is not an own property
+var getProperty = function getProperty(obj, name) {
+	if (name === '__proto__') {
+		if (!hasOwn.call(obj, name)) {
+			return void 0;
+		} else if (gOPD) {
+			// In early versions of node, obj['__proto__'] is buggy when obj has
+			// __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+			return gOPD(obj, name).value;
+		}
+	}
+
+	return obj[name];
+};
+
 module.exports = function extend() {
 	var options, name, src, copy, copyIsArray, clone;
 	var target = arguments[0];
@@ -4709,8 +4749,8 @@ module.exports = function extend() {
 		if (options != null) {
 			// Extend the base object
 			for (name in options) {
-				src = target[name];
-				copy = options[name];
+				src = getProperty(target, name);
+				copy = getProperty(options, name);
 
 				// Prevent never-ending loop
 				if (target !== copy) {
@@ -4724,11 +4764,11 @@ module.exports = function extend() {
 						}
 
 						// Never move original objects, clone them
-						target[name] = extend(deep, clone, copy);
+						setProperty(target, { name: name, newValue: extend(deep, clone, copy) });
 
 					// Don't bring in undefined values
 					} else if (typeof copy !== 'undefined') {
-						target[name] = copy;
+						setProperty(target, { name: name, newValue: copy });
 					}
 				}
 			}
@@ -4750,7 +4790,7 @@ module.exports = function extend() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                        //
 exports.name = "mongo-object";
-exports.version = "0.1.2";
+exports.version = "0.1.3";
 exports.main = "./dist/mongo-object.js";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25334,40 +25374,43 @@ process.umask = function() { return 0; };
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                        //
 module.exports = {
-  "_from": "@babel/runtime@^7.0.0-beta.51",
+  "_args": [
+    [
+      "@babel/runtime@7.0.0-beta.52",
+      "C:\\Users\\sandh\\Documents\\NUS\\Orbital\\GitHungry\\app\\orbital\\hungry"
+    ]
+  ],
+  "_from": "@babel/runtime@7.0.0-beta.52",
   "_id": "@babel/runtime@7.0.0-beta.52",
   "_inBundle": false,
   "_integrity": "sha1-PztCuCuStOGig/x43xuy/Uuo0Mc=",
   "_location": "/@babel/runtime",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "@babel/runtime@^7.0.0-beta.51",
+    "raw": "@babel/runtime@7.0.0-beta.52",
     "name": "@babel/runtime",
     "escapedName": "@babel%2fruntime",
     "scope": "@babel",
-    "rawSpec": "^7.0.0-beta.51",
+    "rawSpec": "7.0.0-beta.52",
     "saveSpec": null,
-    "fetchSpec": "^7.0.0-beta.51"
+    "fetchSpec": "7.0.0-beta.52"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.0.0-beta.52.tgz",
-  "_shasum": "3f3b42b82b92b4e1a283fc78df1bb2fd4ba8d0c7",
-  "_spec": "@babel/runtime@^7.0.0-beta.51",
-  "_where": "C:\\Users\\zhenying\\Hungry\\CornedBeefSandwich\\hungry",
+  "_spec": "7.0.0-beta.52",
+  "_where": "C:\\Users\\sandh\\Documents\\NUS\\Orbital\\GitHungry\\app\\orbital\\hungry",
   "author": {
     "name": "Sebastian McKenzie",
     "email": "sebmck@gmail.com"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "core-js": "^2.5.7",
     "regenerator-runtime": "^0.12.0"
   },
-  "deprecated": false,
   "description": "babel selfContained runtime",
   "devDependencies": {
     "@babel/core": "7.0.0-beta.52",

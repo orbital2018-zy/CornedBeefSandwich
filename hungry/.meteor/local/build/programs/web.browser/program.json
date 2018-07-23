@@ -42,9 +42,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=51145e4c8a499942b8e39fbab761c55b3ab95986",
-      "size": 874748,
-      "hash": "51145e4c8a499942b8e39fbab761c55b3ab95986"
+      "url": "/packages/modules.js?hash=31257d0cfb3f95e418b0e51edccb0e534cb22a6d",
+      "size": 876258,
+      "hash": "31257d0cfb3f95e418b0e51edccb0e534cb22a6d"
     },
     {
       "path": "packages/modern-browsers.js",
@@ -903,6 +903,95 @@
       "hash": "9ce2be5568dddbf86b5c6732b75ce4a038d39c56"
     },
     {
+      "path": "packages/easysearch_core.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/easysearch_core.js?hash=ec30e3f6f5dbb26abefc797f27bab65f6a2ee713",
+      "sourceMap": "packages/easysearch_core.js.map",
+      "sourceMapUrl": "/packages/ec30e3f6f5dbb26abefc797f27bab65f6a2ee713.map",
+      "size": 38209,
+      "hash": "ec30e3f6f5dbb26abefc797f27bab65f6a2ee713"
+    },
+    {
+      "path": "packages/peerlibrary_assert.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_assert.js?hash=fb4a22e2f903f5c140059d1767525007ae2401a9",
+      "size": 41222,
+      "hash": "fb4a22e2f903f5c140059d1767525007ae2401a9"
+    },
+    {
+      "path": "packages/peerlibrary_reactive-field.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_reactive-field.js?hash=355ad74e176d942da6d18c35d8ed2b4bb97e986a",
+      "size": 3487,
+      "hash": "355ad74e176d942da6d18c35d8ed2b4bb97e986a"
+    },
+    {
+      "path": "packages/peerlibrary_computed-field.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_computed-field.js?hash=02f4b730eb078aa2fb06c131c75a9436d291b7cd",
+      "size": 4200,
+      "hash": "02f4b730eb078aa2fb06c131c75a9436d291b7cd"
+    },
+    {
+      "path": "packages/peerlibrary_base-component.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_base-component.js?hash=458257eda1c9747998d7265cb87120e8cae835c4",
+      "size": 20114,
+      "hash": "458257eda1c9747998d7265cb87120e8cae835c4"
+    },
+    {
+      "path": "packages/peerlibrary_data-lookup.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_data-lookup.js?hash=dd5704e8579083c19b90bcc341c2bb6384eb6fe9",
+      "size": 3226,
+      "hash": "dd5704e8579083c19b90bcc341c2bb6384eb6fe9"
+    },
+    {
+      "path": "packages/peerlibrary_blaze-components.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/peerlibrary_blaze-components.js?hash=dfc22fb5f592dbd06fc16c6ec59636116c86435e",
+      "sourceMap": "packages/peerlibrary_blaze-components.js.map",
+      "sourceMapUrl": "/packages/dfc22fb5f592dbd06fc16c6ec59636116c86435e.map",
+      "size": 90777,
+      "hash": "dfc22fb5f592dbd06fc16c6ec59636116c86435e"
+    },
+    {
+      "path": "packages/easysearch_components.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/easysearch_components.js?hash=74355e8f019884a326bda314d54f0cfb8ee053d7",
+      "sourceMap": "packages/easysearch_components.js.map",
+      "sourceMapUrl": "/packages/74355e8f019884a326bda314d54f0cfb8ee053d7.map",
+      "size": 50188,
+      "hash": "74355e8f019884a326bda314d54f0cfb8ee053d7"
+    },
+    {
+      "path": "packages/easy_search.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/easy_search.js?hash=77ce11f844f5f6f95277088867fd87e8cf802fbd",
+      "sourceMap": "packages/easy_search.js.map",
+      "sourceMapUrl": "/packages/77ce11f844f5f6f95277088867fd87e8cf802fbd.map",
+      "size": 4019,
+      "hash": "77ce11f844f5f6f95277088867fd87e8cf802fbd"
+    },
+    {
       "path": "packages/webapp.js",
       "where": "client",
       "type": "js",
@@ -947,9 +1036,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/global-imports.js?hash=7ce38f63c208c6f5e827f7f5dd483c8e99422cc9",
-      "size": 1164,
-      "hash": "7ce38f63c208c6f5e827f7f5dd483c8e99422cc9"
+      "url": "/app/global-imports.js?hash=413fa1161a32aa56e5b327c2a73d622d07e590e4",
+      "size": 1212,
+      "hash": "413fa1161a32aa56e5b327c2a73d622d07e590e4"
     },
     {
       "path": "app/app.js",

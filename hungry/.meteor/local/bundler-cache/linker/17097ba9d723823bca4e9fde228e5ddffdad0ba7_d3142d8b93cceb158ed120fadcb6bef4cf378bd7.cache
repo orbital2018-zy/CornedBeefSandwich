@@ -1,0 +1,1 @@
+[{"type":"js","data":"(function () {\n\n\n\n/* Exports */\nPackage._define(\"jeffm:local-persist\");\n\n})();\n","servePath":"/packages/jeffm_local-persist.js"}]

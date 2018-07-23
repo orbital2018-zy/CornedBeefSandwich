@@ -1,0 +1,1 @@
+[{"type":"js","data":"(function () {\n\n/* Package-scope variables */\nvar ToyKit;\n\n\n\n/* Exports */\nPackage._define(\"meteortoys:mobile\", {\n  ToyKit: ToyKit\n});\n\n})();\n","servePath":"/packages/meteortoys_mobile.js"}]

@@ -335,6 +335,37 @@
       "path": "packages/twbs_bootstrap.js"
     },
     {
+      "sourceMap": "packages/easysearch_core.js.map",
+      "path": "packages/easysearch_core.js"
+    },
+    {
+      "path": "packages/peerlibrary_assert.js"
+    },
+    {
+      "path": "packages/peerlibrary_reactive-field.js"
+    },
+    {
+      "path": "packages/peerlibrary_computed-field.js"
+    },
+    {
+      "path": "packages/peerlibrary_base-component.js"
+    },
+    {
+      "path": "packages/peerlibrary_data-lookup.js"
+    },
+    {
+      "sourceMap": "packages/peerlibrary_blaze-components.js.map",
+      "path": "packages/peerlibrary_blaze-components.js"
+    },
+    {
+      "sourceMap": "packages/easysearch_components.js.map",
+      "path": "packages/easysearch_components.js"
+    },
+    {
+      "sourceMap": "packages/easy_search.js.map",
+      "path": "packages/easy_search.js"
+    },
+    {
       "path": "packages/livedata.js"
     },
     {
