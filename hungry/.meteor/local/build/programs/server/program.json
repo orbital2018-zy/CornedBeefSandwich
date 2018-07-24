@@ -366,6 +366,9 @@
       "path": "packages/easy_search.js"
     },
     {
+      "path": "packages/session.js"
+    },
+    {
       "path": "packages/livedata.js"
     },
     {

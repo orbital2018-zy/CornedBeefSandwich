@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './DisplaySearch.html';
+import './Results.html';
 
 Template.DisplaySearch.onCreated(function() {
     var self = this;
@@ -12,8 +13,14 @@ Template.DisplaySearch.onCreated(function() {
 });
 
 Template.DisplaySearch.helpers({
-    recipes() {
-        return Recipes.find({});
+    ShowRecipes() {
+        var ingred = FlowRouter.getQueryParam("ingred");
+
+        ingred = ingred.split(',');
+
+        for (i = 0; i < ingred.length; i++) {
+            return Recipes.find({'ingredients.name': ingred[i]});
+        }
     },
 });
 

@@ -11,6 +11,7 @@ AutoForm = Package['aldeed:autoform'].AutoForm;
 LocalPersist = Package['jeffm:local-persist'].LocalPersist;
 Collection2 = Package['aldeed:collection2-core'].Collection2;
 EasySearch = Package['easy:search'].EasySearch;
+Session = Package.session.Session;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;
 meteorEnv = Package.meteor.meteorEnv;

@@ -49,9 +49,9 @@ FlowRouter.route('/shopping-list', {
     }
 });
 
-FlowRouter.route('/search', {
-    name: 'search',
-    action() {
+FlowRouter.route('/display-search', {
+    name: 'display-search',
+    action() { 
         BlazeLayout.render('MainLayout', {main: 'DisplaySearch'});
     }
 });

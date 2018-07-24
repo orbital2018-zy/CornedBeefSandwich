@@ -25377,7 +25377,7 @@ module.exports = {
   "_args": [
     [
       "@babel/runtime@7.0.0-beta.52",
-      "C:\\Users\\sandh\\Documents\\NUS\\Orbital\\GitHungry\\app\\orbital\\hungry"
+      "C:\\Users\\zhenying\\Hungry\\CornedBeefSandwich\\hungry"
     ]
   ],
   "_from": "@babel/runtime@7.0.0-beta.52",
@@ -25402,7 +25402,7 @@ module.exports = {
   ],
   "_resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.0.0-beta.52.tgz",
   "_spec": "7.0.0-beta.52",
-  "_where": "C:\\Users\\sandh\\Documents\\NUS\\Orbital\\GitHungry\\app\\orbital\\hungry",
+  "_where": "C:\\Users\\zhenying\\Hungry\\CornedBeefSandwich\\hungry",
   "author": {
     "name": "Sebastian McKenzie",
     "email": "sebmck@gmail.com"

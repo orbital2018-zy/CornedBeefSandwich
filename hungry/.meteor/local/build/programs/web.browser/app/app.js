@@ -30,9 +30,9 @@ Template["DisplaySearch"] = new Template("Template.DisplaySearch", (function() {
     return Spacebars.call(view.templateInstance().subscriptionsReady());
   }, function() {
     return [ "\n            ", Blaze.Each(function() {
-      return Spacebars.call(view.lookup("recipes"));
+      return Spacebars.call(view.lookup("ShowRecipes"));
     }, function() {
-      return [ "\n                ", Spacebars.include(view.lookupTemplate("Result")), "\n            " ];
+      return [ "\n                ", Spacebars.include(view.lookupTemplate("Results")), "\n            " ];
     }), "\n            ", HTML.H4({
       style: "padding: 20px;"
     }, "End of your search"), "\n        " ];
@@ -262,7 +262,23 @@ module.watch(require("./template.SearchIngred.js"), {
 Template.__checkName("SearchIngred");
 Template["SearchIngred"] = new Template("Template.SearchIngred", (function() {
   var view = this;
-  return HTML.Raw('<form class="search">\n        <p>Separate ingredients with a comma (,).</p>\n        <input type="text" name="ingred" placeholder="insert ingredients">\n        <input type="submit">\n        </form>');
+  return [ HTML.Raw('<form class="search" onsubmit="this.submit(); this.reset(); return false;" action="/display-search">\n        <p>Separate ingredients with a comma (,).</p>\n        <input type="text" name="ingred" placeholder="insert ingredients">\n        <input type="submit">\n        </form>   \n\n        <h2>Here are your search results:</h2>\n        '), HTML.SECTION({
+    class: "output"
+  }, "\n            ", HTML.P(Blaze.View("lookup:show", function() {
+    return Spacebars.mustache(view.lookup("show"));
+  })), "\n            ", Blaze.If(function() {
+    return Spacebars.call(view.templateInstance().subscriptionsReady());
+  }, function() {
+    return [ "\n                ", Blaze.Each(function() {
+      return Spacebars.call(view.lookup("ingredrecipes"));
+    }, function() {
+      return [ "\n                    ", Spacebars.include(view.lookupTemplate("Results")), "\n                " ];
+    }), "\n                ", HTML.H4({
+      style: "padding: 20px;"
+    }, "End of your search"), "\n            " ];
+  }, function() {
+    return [ "\n                ", HTML.H4("Loading your search results..."), "\n            " ];
+  }), "\n        ") ];
 }));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,7 +309,7 @@ module.watch(require("./template.ShoppingList.js"), {
 Template.__checkName("ShoppingList");
 Template["ShoppingList"] = new Template("Template.ShoppingList", (function() {
   var view = this;
-  return [ HTML.Raw('<div class="container">\n        <h1>My Shopping List</h1>\n    </div>\n    <form class="new-ingredient">\n        <input type="text" name="text" placeholder="Add you ingredients">\n    </form>\n    '), HTML.DIV({
+  return [ HTML.Raw('<div class="container">\n        <h1>My Shopping List</h1>\n    </div>\n    <form class="new-ingredient">\n        <input type="text" name="text" placeholder="Add your ingredients">\n    </form>\n    '), HTML.DIV({
     style: "padding-bottom : 120px"
   }, "\n        ", HTML.UL("\n            ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("Items"));
@@ -352,6 +368,7 @@ module.watch(require("meteor/kadira:flow-router"), {
 
 }, 2);
 module.watch(require("./DisplaySearch.html"));
+module.watch(require("./Results.html"));
 Template.DisplaySearch.onCreated(function () {
   var self = this;
   self.autorun(function () {
@@ -359,8 +376,15 @@ Template.DisplaySearch.onCreated(function () {
   });
 });
 Template.DisplaySearch.helpers({
-  recipes() {
-    return Recipes.find({});
+  ShowRecipes() {
+    var ingred = FlowRouter.getQueryParam("ingred");
+    ingred = ingred.split(',');
+
+    for (i = 0; i < ingred.length; i++) {
+      return Recipes.find({
+        'ingredients.name': ingred[i]
+      });
+    }
   }
 
 });
@@ -464,6 +488,63 @@ Template.RecipeSingle.helpers({
   }
 
 });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"SearchIngred.js":function(require,exports,module){
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                    //
+// imports/functions/SearchIngred.js                                                                                  //
+//                                                                                                                    //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                      //
+let Template;
+module.watch(require("meteor/templating"), {
+  Template(v) {
+    Template = v;
+  }
+
+}, 0);
+let Session;
+module.watch(require("meteor/session"), {
+  Session(v) {
+    Session = v;
+  }
+
+}, 1);
+let Recipes;
+module.watch(require("../collections/recipes.js"), {
+  Recipes(v) {
+    Recipes = v;
+  }
+
+}, 2);
+let Meteor;
+module.watch(require("meteor/meteor"), {
+  Meteor(v) {
+    Meteor = v;
+  }
+
+}, 3);
+module.watch(require("./SearchIngred.html"));
+
+if (Meteor.isClient) {
+  Template.SearchIngred.onCreated(function () {
+    var self = this;
+    self.autorun(function () {
+      self.subscribe('recipes');
+    });
+  });
+  Template.SearchIngred.events({
+    'submit.search'(event) {
+      event.preventDefault();
+    }
+
+  });
+  UI.registerHelper("ingredrecipes", function () {
+    return Recipes.find();
+  });
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"ShoppingList.js":function(require,exports,module){
@@ -919,8 +1000,8 @@ FlowRouter.route('/shopping-list', {
   }
 
 });
-FlowRouter.route('/search', {
-  name: 'search',
+FlowRouter.route('/display-search', {
+  name: 'display-search',
 
   action() {
     BlazeLayout.render('MainLayout', {
@@ -982,6 +1063,7 @@ module.watch(require("../imports/functions/ShoppingList.js"));
 module.watch(require("../imports/functions/InsertRecipe.js"));
 module.watch(require("../imports/functions/DisplaySearch.js"));
 module.watch(require("../imports/functions/RecipeSingle.js"));
+module.watch(require("../imports/functions/SearchIngred.js"));
 window.Recipes = Recipes;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

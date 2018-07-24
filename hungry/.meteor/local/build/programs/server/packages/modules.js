@@ -162,6 +162,7 @@ install("peerlibrary:data-lookup");
 install("peerlibrary:blaze-components");
 install("easysearch:components", "meteor/easysearch:components/lib/main.js");
 install("easy:search", "meteor/easy:search/main.js");
+install("session");
 install("livedata");
 install("hot-code-push");
 install("launch-screen");

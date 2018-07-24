@@ -2,8 +2,8 @@
     <h2>Here are your search results:</h2>
     <section class="output">
         {{#if Template.subscriptionsReady}}
-            {{#each recipes}}
-                {{> Result}}
+            {{#each ShowRecipes}}
+                {{> Results}}
             {{/each}}
             <h4 style="padding: 20px;">End of your search</h4>
         {{else}}

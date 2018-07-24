@@ -6,9 +6,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/meteor.js?hash=c8108d734cc548d91539b054e14b613d0c4512cc",
-      "size": 44751,
-      "hash": "c8108d734cc548d91539b054e14b613d0c4512cc"
+      "url": "/packages/meteor.js?hash=1f49b977b0beabbfeaa0ef0bdb87e0693971b18c",
+      "size": 45648,
+      "hash": "1f49b977b0beabbfeaa0ef0bdb87e0693971b18c"
     },
     {
       "path": "packages/meteor-base.js",
@@ -42,9 +42,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=9e9df37ab92a82b93b7e1c8386f46f1938e318a1",
-      "size": 1300316,
-      "hash": "9e9df37ab92a82b93b7e1c8386f46f1938e318a1"
+      "url": "/packages/modules.js?hash=7dbaf60e4defcc9edac7e7a21b3def7ec53a26f5",
+      "size": 1300278,
+      "hash": "7dbaf60e4defcc9edac7e7a21b3def7ec53a26f5"
     },
     {
       "path": "packages/modern-browsers.js",
@@ -373,11 +373,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/mongo.js?hash=7dae0d2bbf4992c92bbb005435b6ee27a23d13b2",
+      "url": "/packages/mongo.js?hash=df0317389174557d90dc007dd5aca8e51cccad9a",
       "sourceMap": "packages/mongo.js.map",
-      "sourceMapUrl": "/packages/7dae0d2bbf4992c92bbb005435b6ee27a23d13b2.map",
-      "size": 36009,
-      "hash": "7dae0d2bbf4992c92bbb005435b6ee27a23d13b2"
+      "sourceMapUrl": "/packages/df0317389174557d90dc007dd5aca8e51cccad9a.map",
+      "size": 36263,
+      "hash": "df0317389174557d90dc007dd5aca8e51cccad9a"
     },
     {
       "path": "packages/blaze-html-templates.js",
@@ -1036,20 +1036,20 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/global-imports.js?hash=dc77d9912b4dd2e59cbdc9905e33c5fa9696b01b",
-      "size": 1362,
-      "hash": "dc77d9912b4dd2e59cbdc9905e33c5fa9696b01b"
+      "url": "/app/global-imports.js?hash=70a5fa1ba822afae9906ee5d0fe1b7f0cc8ba7ae",
+      "size": 1397,
+      "hash": "70a5fa1ba822afae9906ee5d0fe1b7f0cc8ba7ae"
     },
     {
       "path": "app/app.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=82265b1010459479d798537cf12107cc79745b40",
+      "url": "/app/app.js?hash=9f0adc5a404c4dd6675d8619abd0ef85096605ad",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/82265b1010459479d798537cf12107cc79745b40.map",
-      "size": 49654,
-      "hash": "82265b1010459479d798537cf12107cc79745b40"
+      "sourceMapUrl": "/app/9f0adc5a404c4dd6675d8619abd0ef85096605ad.map",
+      "size": 52686,
+      "hash": "9f0adc5a404c4dd6675d8619abd0ef85096605ad"
     },
     {
       "path": "packages/service-configuration.js",

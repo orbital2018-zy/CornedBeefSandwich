@@ -313,6 +313,10 @@ Object.assign(Mongo.Collection.prototype, {
             keys.forEach(function (key) {
               var value = msg.fields[key];
 
+              if (EJSON.equals(doc[key], value)) {
+                return;
+              }
+
               if (typeof value === "undefined") {
                 if (!modifier.$unset) {
                   modifier.$unset = {};
@@ -328,7 +332,9 @@ Object.assign(Mongo.Collection.prototype, {
               }
             });
 
-            self._collection.update(mongoId, modifier);
+            if (Object.keys(modifier).length > 0) {
+              self._collection.update(mongoId, modifier);
+            }
           }
         } else {
           throw new Error("I don't know how to deal with this message");
@@ -772,8 +778,10 @@ Object.assign(Mongo.Collection.prototype, {
   },
 
   /**
-   * @summary Returns the [`Collection`](http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html) object corresponding to this collection from the [npm `mongodb` driver module](https://www.npmjs.com/package/mongodb) which is wrapped by `Mongo.Collection`.
+   * @summary Returns the [`Collection`](http://mongodb.github.io/node-mongodb-native/3.0/api/Collection.html) object corresponding to this collection from the [npm `mongodb` driver module](https://www.npmjs.com/package/mongodb) which is wrapped by `Mongo.Collection`.
    * @locus Server
+   * @memberof Mongo.Collection
+   * @instance
    */
   rawCollection: function () {
     var self = this;
@@ -786,8 +794,10 @@ Object.assign(Mongo.Collection.prototype, {
   },
 
   /**
-   * @summary Returns the [`Db`](http://mongodb.github.io/node-mongodb-native/2.2/api/Db.html) object corresponding to this collection's database connection from the [npm `mongodb` driver module](https://www.npmjs.com/package/mongodb) which is wrapped by `Mongo.Collection`.
+   * @summary Returns the [`Db`](http://mongodb.github.io/node-mongodb-native/3.0/api/Db.html) object corresponding to this collection's database connection from the [npm `mongodb` driver module](https://www.npmjs.com/package/mongodb) which is wrapped by `Mongo.Collection`.
    * @locus Server
+   * @memberof Mongo.Collection
+   * @instance
    */
   rawDatabase: function () {
     var self = this;
