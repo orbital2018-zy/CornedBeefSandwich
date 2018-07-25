@@ -2,7 +2,6 @@
         <h1>{{recipe.name}}</h1>
         <p>Difficulty: {{recipe.difficulty}}</p>
         <p>Duration: {{recipe.duration}}</p>
-        <p>Created on: {{recipe.createdOn}}</p>
         <p>
             {{#each recipe.ingredients}}
                 <li>{{name}} - {{amount}}</li>
@@ -15,4 +14,5 @@
                 <span>{{dietary}}</span>
             {{/each}}
         </p>
+        <p>Created on: {{recipe.createdOn}}</p>
 </template>

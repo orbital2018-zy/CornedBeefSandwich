@@ -17,10 +17,12 @@ Template.DisplaySearch.helpers({
         var ingred = FlowRouter.getQueryParam("ingred");
 
         ingred = ingred.split(',');
-
-        for (i = 0; i < ingred.length; i++) {
-            return Recipes.find({'ingredients.name': ingred[i]});
-        }
+        var list;
+        //for (i = 0; i < ingred.length; i++) {
+            //return Recipes.find({'ingredients.name': ingred[i]});
+        //}
+        list = Recipes.find({'ingredients.name': {$in: ingred}});
+        return list;
     },
 });
 

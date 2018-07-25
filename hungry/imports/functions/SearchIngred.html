@@ -1,14 +1,14 @@
 <template name="SearchIngred">
     
     <form class="search" onsubmit="this.submit(); this.reset(); return false;" action="/display-search">
-        <p>Separate ingredients with a comma (,).</p>
+        <p>Separate ingredients with a comma (,).Do not include a blank space before or after the comma.</p>
         <input type="text" name="ingred"
         placeholder="insert ingredients"/>
         <input type="submit" />
         </form>   
 
-        <h2>Here are your search results:</h2>
-        <section class="output">
+        <h2>Suggestions for you: </h2>
+        <section class="output" style="padding-right: 20px;">
             <p>{{show}}</p>
             {{#if Template.subscriptionsReady}}
                 {{#each ingredrecipes}}
@@ -16,7 +16,7 @@
                 {{/each}}
                 <h4 style="padding: 20px;">End of your search</h4>
             {{else}}
-                <h4 >Loading your search results...</h4>
+                <h4 >Loading your results...</h4>
             {{/if}}
         </section>
 </template>

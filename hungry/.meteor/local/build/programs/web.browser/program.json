@@ -42,9 +42,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=ee7d06d54e427ebfcf81a318301f4b3fd8d7b48a",
-      "size": 876220,
-      "hash": "ee7d06d54e427ebfcf81a318301f4b3fd8d7b48a"
+      "url": "/packages/modules.js?hash=302c127b479a8a2097b280f5a5493bd82d70f80c",
+      "size": 876282,
+      "hash": "302c127b479a8a2097b280f5a5493bd82d70f80c"
     },
     {
       "path": "packages/modern-browsers.js",
@@ -1045,11 +1045,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=87d7391705c3a67bcb41b9567908be860ac5b5e2",
+      "url": "/app/app.js?hash=49a253725cf534e83a88d186d2d66b57897dd391",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/87d7391705c3a67bcb41b9567908be860ac5b5e2.map",
-      "size": 52309,
-      "hash": "87d7391705c3a67bcb41b9567908be860ac5b5e2"
+      "sourceMapUrl": "/app/49a253725cf534e83a88d186d2d66b57897dd391.map",
+      "size": 52732,
+      "hash": "49a253725cf534e83a88d186d2d66b57897dd391"
     },
     {
       "path": "packages/service-configuration.js",

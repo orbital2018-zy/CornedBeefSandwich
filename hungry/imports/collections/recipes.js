@@ -39,7 +39,7 @@ Recipes.attachSchema(new SimpleSchema({
     },
     course: {
         type: String,
-        label: "Course",
+        label: "Course(Eg: mains, sides, snacks, dessert, drinks, etc.)",
     },
     createdOn: {
         type: Date,
@@ -64,7 +64,7 @@ Recipes.attachSchema(new SimpleSchema({
     },
     ingredients: {
         type: Array,
-        label: "Ingredients",
+        label: "Ingredients(Do not include condiments)",
         minCount: 1,
     },
     'ingredients.$': {
@@ -72,6 +72,10 @@ Recipes.attachSchema(new SimpleSchema({
     },
     'ingredients.$.name': {
         type: String,
+        autoValue: function(){
+            if(this.isSet && typeof this.value === "string")
+                return this.value.toLowerCase();
+        }
     },
     'ingredients.$.amount': {
         type: String,
@@ -123,7 +127,7 @@ Recipes.attachSchema(new SimpleSchema({
     },
     dietary: {
         type: Array,
-        label: "Dietary Tags",
+        label: "Dietary Tags(If there are no tags, just enter 'none')",
     },
     'dietary.$': {
         type: String,

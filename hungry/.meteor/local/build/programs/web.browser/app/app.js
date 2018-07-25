@@ -168,8 +168,6 @@ Template["RecipeSingle"] = new Template("Template.RecipeSingle", (function() {
     return Spacebars.mustache(Spacebars.dot(view.lookup("recipe"), "difficulty"));
   })), "\n        ", HTML.P("Duration: ", Blaze.View("lookup:recipe.duration", function() {
     return Spacebars.mustache(Spacebars.dot(view.lookup("recipe"), "duration"));
-  })), "\n        ", HTML.P("Created on: ", Blaze.View("lookup:recipe.createdOn", function() {
-    return Spacebars.mustache(Spacebars.dot(view.lookup("recipe"), "createdOn"));
   })), "\n        ", HTML.P("\n            ", Blaze.Each(function() {
     return Spacebars.call(Spacebars.dot(view.lookup("recipe"), "ingredients"));
   }, function() {
@@ -188,7 +186,9 @@ Template["RecipeSingle"] = new Template("Template.RecipeSingle", (function() {
     return [ "\n                ", HTML.SPAN(Blaze.View("lookup:dietary", function() {
       return Spacebars.mustache(view.lookup("dietary"));
     })), "\n            " ];
-  }), "\n        ") ];
+  }), "\n        "), "\n        ", HTML.P("Created on: ", Blaze.View("lookup:recipe.createdOn", function() {
+    return Spacebars.mustache(Spacebars.dot(view.lookup("recipe"), "createdOn"));
+  })) ];
 }));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -227,7 +227,7 @@ Template["Results"] = new Template("Template.Results", (function() {
     }
   }, Blaze.View("lookup:name", function() {
     return Spacebars.mustache(view.lookup("name"));
-  }))), "\n        ", HTML.P("Difficult: ", Blaze.View("lookup:difficulty", function() {
+  }))), "\n        ", HTML.P("Difficulty: ", Blaze.View("lookup:difficulty", function() {
     return Spacebars.mustache(view.lookup("difficulty"));
   })), "\n        ", HTML.P("Course of meal: ", Blaze.View("lookup:course", function() {
     return Spacebars.mustache(view.lookup("course"));
@@ -262,8 +262,9 @@ module.watch(require("./template.SearchIngred.js"), {
 Template.__checkName("SearchIngred");
 Template["SearchIngred"] = new Template("Template.SearchIngred", (function() {
   var view = this;
-  return [ HTML.Raw('<form class="search" onsubmit="this.submit(); this.reset(); return false;" action="/display-search">\n        <p>Separate ingredients with a comma (,).</p>\n        <input type="text" name="ingred" placeholder="insert ingredients">\n        <input type="submit">\n        </form>   \n\n        <h2>Here are your search results:</h2>\n        '), HTML.SECTION({
-    class: "output"
+  return [ HTML.Raw('<form class="search" onsubmit="this.submit(); this.reset(); return false;" action="/display-search">\n        <p>Separate ingredients with a comma (,).Do not include a blank space before or after the comma.</p>\n        <input type="text" name="ingred" placeholder="insert ingredients">\n        <input type="submit">\n        </form>   \n\n        <h2>Suggestions for you: </h2>\n        '), HTML.SECTION({
+    class: "output",
+    style: "padding-right: 20px;"
   }, "\n            ", HTML.P(Blaze.View("lookup:show", function() {
     return Spacebars.mustache(view.lookup("show"));
   })), "\n            ", Blaze.If(function() {
@@ -277,7 +278,7 @@ Template["SearchIngred"] = new Template("Template.SearchIngred", (function() {
       style: "padding: 20px;"
     }, "End of your search"), "\n            " ];
   }, function() {
-    return [ "\n                ", HTML.H4("Loading your search results..."), "\n            " ];
+    return [ "\n                ", HTML.H4("Loading your results..."), "\n            " ];
   }), "\n        ") ];
 }));
 
@@ -379,12 +380,16 @@ Template.DisplaySearch.helpers({
   ShowRecipes() {
     var ingred = FlowRouter.getQueryParam("ingred");
     ingred = ingred.split(',');
+    var list; //for (i = 0; i < ingred.length; i++) {
+    //return Recipes.find({'ingredients.name': ingred[i]});
+    //}
 
-    for (i = 0; i < ingred.length; i++) {
-      return Recipes.find({
-        'ingredients.name': ingred[i]
-      });
-    }
+    list = Recipes.find({
+      'ingredients.name': {
+        $in: ingred
+      }
+    });
+    return list;
   }
 
 });
@@ -644,7 +649,7 @@ module.watch(require("./template.HomeLayout.js"), {
 Template.__checkName("HomeLayout");
 Template["HomeLayout"] = new Template("Template.HomeLayout", (function() {
   var view = this;
-  return [ Spacebars.include(view.lookupTemplate("Header")), HTML.Raw('\n    <main>\n        <div class="billboard" align="center" style="font-size:140%">\n            <h2> Welcome to hungry!</h2>\n        </div>\n    </main>\n    '), HTML.DIV({
+  return [ Spacebars.include(view.lookupTemplate("Header")), HTML.Raw('\n    <main>\n        <div class="billboard" align="center" style="font-size:140%">\n            <h2> Welcome to Hungry!</h2>\n        </div>\n    </main>\n    '), HTML.DIV({
     align: "center",
     style: "padding-top: 40px;"
   }, "\n        ", Spacebars.include(view.lookupTemplate("SearchIngred")), "\n    "), HTML.Raw('\n    <div align="center" style="padding : 80px; font-size:180%">\n        <a href="/shopping-list"><i class="">Shopping List</i></a>\n        &nbsp;\n        &nbsp;\n        <a href="/festive"><i class="">Festive Recipes</i></a>\n    </div>\n    '), HTML.FOOTER("\n        ", Spacebars.include(view.lookupTemplate("MoreInfo")), "\n    ") ];
@@ -829,7 +834,7 @@ Recipes.attachSchema(new SimpleSchema({
   },
   course: {
     type: String,
-    label: "Course"
+    label: "Course(Eg: mains, sides, snacks, dessert, drinks, etc.)"
   },
   createdOn: {
     type: Date,
@@ -855,14 +860,17 @@ Recipes.attachSchema(new SimpleSchema({
   },
   ingredients: {
     type: Array,
-    label: "Ingredients",
+    label: "Ingredients(Do not include condiments)",
     minCount: 1
   },
   'ingredients.$': {
     type: Object
   },
   'ingredients.$.name': {
-    type: String
+    type: String,
+    autoValue: function () {
+      if (this.isSet && typeof this.value === "string") return this.value.toLowerCase();
+    }
   },
   'ingredients.$.amount': {
     type: String
@@ -906,7 +914,7 @@ Recipes.attachSchema(new SimpleSchema({
   },
   dietary: {
     type: Array,
-    label: "Dietary Tags"
+    label: "Dietary Tags(If there are no tags, just enter 'none')"
   },
   'dietary.$': {
     type: String
